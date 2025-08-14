@@ -152,9 +152,8 @@ jobs:
             ]
         # Only publish when:
         # - Not a PR event
-        # - Not running on a fork
-        # - NPM_TOKEN is present
-        if: ${{ github.event_name != 'pull_request' && !github.event.repository.fork && secrets.NPM_TOKEN != '' }}
+        # - Not running on a fork        
+        if: ${{ github.event_name != 'pull_request' && !github.event.repository.fork }}
         env:
             NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
             GITHUB_CI: true
